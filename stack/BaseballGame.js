@@ -1,5 +1,6 @@
 function calPoints(operations) {
   let x = [];
+  let sum = 0;
   if (1 <= operations.length <= 1000) {
     for (let i = 0; i < operations.length; i++) {
       if (
@@ -21,15 +22,18 @@ function calPoints(operations) {
       }
 
       if (operations[i] === "+") {
-        let item = x[x.length - 1] + x[x.length - 2];
         if (x.length > 1) {
+          let item = x[x.length - 1] + x[x.length - 2];
           x.push(item);
         }
       }
     }
   }
-  console.log(x);
-  //   return x;
+  x.forEach(item => {
+    sum += item;
+});
+  console.log(sum);
+  return sum;
 }
 
 // console.log(
